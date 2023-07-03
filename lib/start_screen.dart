@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'quizz.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({Key? key}) : super(key: key);
+  const StartScreen(this.switchScreenFunction, {super.key});
+
+  final void Function() switchScreenFunction;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +26,16 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 120,
           ),
-          Image.asset(
-            "assets/images/quiz-logo.png",
-            width: 200,
-            height: 200,
+          Opacity(
+            opacity: .6,
+            child: Image.asset(
+              "assets/images/quiz-logo.png",
+              width: 240,
+              height: 240,
+            ),
           ),
           const SizedBox(
-            height: 60,
+            height: 40,
           ),
           const Text(
             "Let's test your knowledge!",
@@ -38,8 +44,10 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 60,
           ),
-          OutlinedButton(
-            onPressed: () {},
+          OutlinedButton.icon(
+            onPressed: () {
+              switchScreenFunction();
+            },
             style: OutlinedButton.styleFrom(
               primary: Colors.black,
               elevation: 10,
@@ -47,9 +55,13 @@ class StartScreen extends StatelessWidget {
               backgroundColor: Colors.white,
               textStyle: const TextStyle(fontSize: 28),
             ),
-            child: const Text(
-              "Start",
-              style: TextStyle(color: Colors.black, fontSize: 28),
+            icon: const Icon(Icons.arrow_right_alt, size: 35),
+            label: const Text(
+              "Start!",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 28,
+              ),
             ),
           )
         ],
