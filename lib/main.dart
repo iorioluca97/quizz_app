@@ -1,20 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:quizz_app/start_screen.dart';
 
 void main() {
-  runApp(const Home());
-}
-
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Quizz App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Text('Quizz App'),
-    );
-  }
+  runApp(
+    const MaterialApp(
+        home: Scaffold(
+          backgroundColor: Colors.deepPurple,
+          body: StartScreen(),
+        ),
+        debugShowCheckedModeBanner: false),
+  );
 }
