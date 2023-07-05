@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 
 class AnswersButtonStyled extends StatelessWidget {
@@ -15,6 +16,7 @@ class AnswersButtonStyled extends StatelessWidget {
     return ElevatedButton(
       onPressed: () {
         onTap;
+        log('item picked: $answerText');
       },
       style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),

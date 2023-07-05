@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'customs/AnswersButtonStyled.dart';
+import 'models/questions_data.dart';
+import 'dart:developer';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -11,19 +13,38 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    final currentQuestion = questions[0];
+    return Container(
+      margin: const EdgeInsets.all(30),
       width: double.infinity, // use as much width as you can
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text("Question number #", style: TextStyle(color: Colors.white)),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: Text(currentQuestion.text,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                )),
+          ),
           const SizedBox(height: 30),
-          Text("Question text", style: TextStyle(color: Colors.white)),
-          const SizedBox(height: 30),
-          AnswersButtonStyled(answerText: "Answer #1", onTap: () {}),
-          AnswersButtonStyled(answerText: "Answer #2", onTap: () {}),
-          AnswersButtonStyled(answerText: "Answer #3", onTap: () {}),
-          AnswersButtonStyled(answerText: "Answer #4", onTap: () {}),
+          /* dato che si verrebbe a creare una lista (quella di column)
+          che all'interno conterrebbe un'altra lista (quella di map)
+          si utilizzano i 3 punti (...) che permettono 
+          di aggiungere gli elementi della seconda lista, 
+          quella nested per intenderci, nella prima
+          come una sorta di append alla prima lista. */
+          ...currentQuestion.getShuffledAnswer().map(
+            (answer) {
+              return AnswersButtonStyled(
+                answerText: answer,
+                onTap: () {},
+              );
+            },
+          )
         ],
       ),
     );

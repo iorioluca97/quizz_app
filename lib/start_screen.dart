@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'quizz.dart';
 
@@ -47,6 +49,7 @@ class StartScreen extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: () {
               switchScreenFunction();
+              log('switchScreenFunction()');
             },
             style: OutlinedButton.styleFrom(
               primary: Colors.black,
