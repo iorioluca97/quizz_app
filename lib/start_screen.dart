@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen(this.switchScreenFunction, {super.key});
+  const StartScreen({required this.switchScreenFunction, super.key});
 
   final void Function() switchScreenFunction;
 
@@ -52,7 +52,7 @@ class StartScreen extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: () {
               switchScreenFunction();
-              log('switchScreenFunction()');
+              log('Pressed "Start!"');
             },
             style: OutlinedButton.styleFrom(
               primary: Colors.black,
