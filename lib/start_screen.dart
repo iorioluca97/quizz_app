@@ -1,7 +1,6 @@
 import 'dart:developer';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import 'quizz.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen(this.switchScreenFunction, {super.key});
@@ -17,12 +16,12 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 120,
           ),
-          const Text(
+          Text(
             'Quizz App',
-            style: TextStyle(
+            style: GoogleFonts.pacifico(
               color: Colors.white,
-              fontSize: 34,
-              fontWeight: FontWeight.bold,
+              fontSize: 45,
+              fontWeight: FontWeight.normal,
             ),
           ),
           const SizedBox(
@@ -37,11 +36,15 @@ class StartScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 40,
+            height: 50,
           ),
-          const Text(
+          Text(
             "Let's test your knowledge!",
-            style: TextStyle(color: Colors.white, fontSize: 28),
+            style: GoogleFonts.kreon(
+              color: Colors.white,
+              fontSize: 28,
+              fontWeight: FontWeight.normal,
+            ),
           ),
           const SizedBox(
             height: 60,
@@ -59,9 +62,9 @@ class StartScreen extends StatelessWidget {
               textStyle: const TextStyle(fontSize: 28),
             ),
             icon: const Icon(Icons.arrow_right_alt, size: 35),
-            label: const Text(
+            label: Text(
               "Start!",
-              style: TextStyle(
+              style: GoogleFonts.kreon(
                 color: Colors.black,
                 fontSize: 28,
               ),
